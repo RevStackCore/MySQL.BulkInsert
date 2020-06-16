@@ -1,0 +1,19 @@
+{
+  "name": "RevStackCore.MySQL.BulkInsert",
+  "version": "1.0.0",
+  "description": "Extends the MySQL implementation of the RevStack Repository Pattern to allow for fast bulk operations",
+  "main": "RevStackCore.MySQL.BulkInsert.sln",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RevStackCore/MySQL.BulkInsert.git"
+  },
+  "author": "MIS Interactive",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RevStackCore/MySQL.BulkInsert/issues"
+  },
+  "homepage": "https://github.com/RevStackCore/MySQL.BulkInsert"
+}
