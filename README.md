@@ -1,4 +1,5 @@
 # RevStackCore.MySQL.BulkInsert
+[![Build status](https://ci.appveyor.com/api/projects/status/m5tkvmgyy8sli7cb?svg=true)](https://ci.appveyor.com/project/tachyon1337/mysql-bulkinsert)
 
 Extends the MySQL implementation of the RevStack Repository Pattern to allow for fast bulk operations
 
