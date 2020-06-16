@@ -54,12 +54,7 @@ class Program
         var serviceCollection = new ServiceCollection();
         ConfigureServices(serviceCollection);
         var serviceProvider = serviceCollection.BuildServiceProvider();
-        var db = serviceProvider.GetService<MySQLDbContext>();
         var dataService = serviceProvider.GetService<IDataService>();
-        db.RegisterTable<Person, string>()
-          .RegisterTable<Tag, int>()
-          .RegisterTable<Contact, int>();
-
         dataService.MyMethod();
     }
     private static void ConfigureServices(IServiceCollection services)
