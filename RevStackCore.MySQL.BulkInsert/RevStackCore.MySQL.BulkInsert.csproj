@@ -17,7 +17,7 @@
   
   <ItemGroup>
     <PackageReference Include="RevStackCore.DataImport" Version="1.0.4" />
-    <PackageReference Include="RevStackCore.MySQL" Version="2.2.2" />
+    <PackageReference Include="RevStackCore.MySQL" Version="2.2.4" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repository\" />

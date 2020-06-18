@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Reflection;
 using CsvHelper;
 using CsvHelper.TypeConversion;
 using Dapper;
 using MySql.Data.MySqlClient;
+using RevStackCore.DataAnnotations;
 using RevStackCore.DataImport;
 
 namespace RevStackCore.MySQL.BulkInsert
@@ -17,7 +19,13 @@ namespace RevStackCore.MySQL.BulkInsert
         public MySQLBulkClient(string connectionString)
         {
             _connectionString = connectionString;
-            _type = typeof(TEntity).Name;
+            var entityType = typeof(TEntity);
+            _type = entityType.Name;
+            var tableAttribute = entityType.GetCustomAttribute<TableAttribute>(true);
+            if (tableAttribute != null && !string.IsNullOrEmpty(tableAttribute.Name))
+            {
+                _type = tableAttribute.Name;
+            }
         }
 
         public IDbConnection Db
@@ -40,10 +48,10 @@ namespace RevStackCore.MySQL.BulkInsert
                 var bulk = new MySqlBulkLoader(db);
                 bulk.SourceStream = stream;
                 bulk.TableName = _type;
-                bulk.FieldTerminator = ",";
+                bulk.FieldTerminator = "\t";
                 //bulk.LineTerminator = "\n";
                 bulk.NumberOfLinesToSkip = 1;
-                bulk.FieldQuotationCharacter = '"';
+                //bulk.FieldQuotationCharacter = '"';
                 int result = bulk.Load();
                 stream.Dispose();
                 return result;
@@ -60,10 +68,10 @@ namespace RevStackCore.MySQL.BulkInsert
                 var bulk = new MySqlBulkLoader(db);
                 bulk.SourceStream = stream;
                 bulk.TableName = _type;
-                bulk.FieldTerminator = ",";
+                bulk.FieldTerminator = "\t";
                 //bulk.LineTerminator = "\n";
                 bulk.NumberOfLinesToSkip = 1;
-                bulk.FieldQuotationCharacter = '"';
+                //bulk.FieldQuotationCharacter = '"';
                 int result = bulk.Load();
                 stream.Dispose();
                 return result;
@@ -89,12 +97,13 @@ namespace RevStackCore.MySQL.BulkInsert
             var csv = new CsvWriter(streamWriter);
             if (useQuotes)
             {
-                csv.Configuration.ShouldQuote = (field, context) => true;
+                //csv.Configuration.ShouldQuote = (field, context) => true;
             }
             var dateOptions = new TypeConverterOptions { Formats = new[] { "yyyy-MM-dd HH:mm:ss" } };
             var boolConverter = new MySQLBooleanConverter();
             csv.Configuration.TypeConverterOptionsCache.AddOptions<DateTime>(dateOptions);
             csv.Configuration.TypeConverterCache.AddConverter<bool>(boolConverter);
+            csv.Configuration.Delimiter = "\t";
             csv.WriteRecords<T>(items);
             streamWriter.Flush();
             csv.Flush();
