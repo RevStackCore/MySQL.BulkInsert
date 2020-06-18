@@ -1,6 +1,6 @@
 {
   "name": "RevStackCore.MySQL.BulkInsert",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Extends the MySQL implementation of the RevStack Repository Pattern to allow for fast bulk operations",
   "main": "RevStackCore.MySQL.BulkInsert.sln",
   "scripts": {
