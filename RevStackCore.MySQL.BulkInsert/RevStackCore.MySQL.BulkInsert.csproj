@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>RevStackCore.MySQL.BulkInsert</PackageId>
-    <PackageVersion>1.0.4</PackageVersion>
+    <PackageVersion>1.0.5</PackageVersion>
     <Authors>David Sheets, S. Francis</Authors>
     <Description>MySQL implementation of the RevStack Repository Pattern.</Description>
     <PackageProjectUrl>https://github.com/RevStackCore/MySQL.BulkInsert.git</PackageProjectUrl>
@@ -16,7 +16,7 @@
   
   <ItemGroup>
     <PackageReference Include="RevStackCore.DataImport" Version="1.0.4" />
-    <PackageReference Include="RevStackCore.MySQL" Version="2.2.8" />
+    <PackageReference Include="RevStackCore.MySQL" Version="2.2.9" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repository\" />
