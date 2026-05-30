@@ -3,20 +3,20 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>RevStackCore.MySQL.BulkInsert</PackageId>
-    <PackageVersion>1.0.5</PackageVersion>
+    <PackageVersion>1.1.0</PackageVersion>
     <Authors>David Sheets, S. Francis</Authors>
     <Description>MySQL implementation of the RevStack Repository Pattern.</Description>
     <PackageProjectUrl>https://github.com/RevStackCore/MySQL.BulkInsert.git</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/RevStackCore/MySQL.BulkInsert/blob/master/LICENSE</PackageLicenseUrl>
     <PackageIconUrl>https://s3.amazonaws.com/revstack/icons/revstackcore-64x64.png</PackageIconUrl>
-    <PackageReleaseNotes>Net Standard 2.0 release</PackageReleaseNotes>
+    <PackageReleaseNotes>1.1.0: depends on RevStackCore.MySQL 2.3.0 which uses MySqlConnector 2.3.7 (MySQL 8.4 compatibility)</PackageReleaseNotes>
     <Copyright>Copyright 2020</Copyright>
     <PackageTags>RevStackCore Repository MySQL Bulk Insert</PackageTags>        
   </PropertyGroup>
   
   <ItemGroup>
     <PackageReference Include="RevStackCore.DataImport" Version="1.0.4" />
-    <PackageReference Include="RevStackCore.MySQL" Version="2.2.9" />
+    <PackageReference Include="RevStackCore.MySQL" Version="2.3.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repository\" />

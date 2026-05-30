@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 using RevStackCore.Extensions.SQL;
 using RevStackCore.Pattern;
 using RevStackCore.Pattern.SQL;

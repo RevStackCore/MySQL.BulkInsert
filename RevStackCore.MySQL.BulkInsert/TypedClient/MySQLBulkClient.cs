@@ -6,7 +6,7 @@ using System.Reflection;
 using CsvHelper;
 using CsvHelper.TypeConversion;
 using Dapper;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 using RevStackCore.DataAnnotations;
 using RevStackCore.DataImport;
 
