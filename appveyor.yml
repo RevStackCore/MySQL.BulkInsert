@@ -19,7 +19,7 @@ branches:
 deploy:
   provider: NuGet
   api_key:
-    secure: 2k0k7a5s83vtvq7c7p1ir13a
+    secure: PcXqIhdC7ZETvlKSX4Zd5kgSp8OoLl59L1T5S9QLuYY=
   skip_symbols: false
   artifact: /.*\.nupkg/
   
