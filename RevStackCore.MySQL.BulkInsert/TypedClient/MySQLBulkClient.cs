@@ -103,6 +103,10 @@ namespace RevStackCore.MySQL.BulkInsert
             var boolConverter = new MySQLBooleanConverter();
             csv.Configuration.TypeConverterOptionsCache.AddOptions<DateTime>(dateOptions);
             csv.Configuration.TypeConverterCache.AddConverter<bool>(boolConverter);
+            // null DateTime? must emit \N (LOAD DATA's NULL), never an empty
+            // field — empty coerces to the '0000-00-00' zero-date that
+            // MySqlConnector cannot read back. See NullableDateTimeConverter.
+            csv.Configuration.TypeConverterCache.AddConverter<DateTime?>(new MySQLNullableDateTimeConverter());
             csv.Configuration.Delimiter = "\t";
             csv.WriteRecords<T>(items);
             streamWriter.Flush();
