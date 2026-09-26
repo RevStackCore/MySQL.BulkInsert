@@ -49,7 +49,10 @@ namespace RevStackCore.MySQL.BulkInsert
                 bulk.SourceStream = stream;
                 bulk.TableName = _type;
                 bulk.FieldTerminator = "\t";
-                //bulk.LineTerminator = "\n";
+                // CsvHelper 12.x always terminates records with CRLF (RFC 4180), on every
+                // platform; MySqlBulkLoader defaults to LF, which left a trailing '\r' in the
+                // LAST column of every loaded row (e.g. sales_transaction.order_status = "paid\r").
+                bulk.LineTerminator = "\r\n";
                 bulk.NumberOfLinesToSkip = 1;
                 //bulk.FieldQuotationCharacter = '"';
                 int result = bulk.Load();
@@ -69,7 +72,10 @@ namespace RevStackCore.MySQL.BulkInsert
                 bulk.SourceStream = stream;
                 bulk.TableName = _type;
                 bulk.FieldTerminator = "\t";
-                //bulk.LineTerminator = "\n";
+                // CsvHelper 12.x always terminates records with CRLF (RFC 4180), on every
+                // platform; MySqlBulkLoader defaults to LF, which left a trailing '\r' in the
+                // LAST column of every loaded row (e.g. sales_transaction.order_status = "paid\r").
+                bulk.LineTerminator = "\r\n";
                 bulk.NumberOfLinesToSkip = 1;
                 //bulk.FieldQuotationCharacter = '"';
                 int result = bulk.Load();
